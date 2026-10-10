@@ -4,120 +4,376 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Trabaja con Korven · Vende sneakers sin invertir</title>
-<meta name="description" content="Tú consigues los clientes, nosotros despachamos. Vende sneakers Korven sin inventario y gana por cada venta.">
+<meta name="description" content="Tú buscas los clientes, nosotros despachamos. Vende sneakers Korven sin inventario y gana por cada venta.">
 <meta name="theme-color" content="#0a0a0a">
 <link rel="icon" href="favicon.png">
 <meta property="og:title" content="Trabaja con Korven">
-<meta property="og:description" content="Tú consigues los clientes, nosotros despachamos.">
+<meta property="og:description" content="Tú buscas los clientes, nosotros despachamos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0a0a;--card:#151515;--line:#252525;--ink:#f5f5f3;--mute:#9a9a96;--wa:#25D366;--pad:clamp(18px,5vw,56px);--ease:cubic-bezier(.22,1,.36,1)}
+:root{
+  --bg:#0a0a0a; --bg2:#111111; --card:#151515; --line:#252525; --line2:#333;
+  --ink:#f5f5f3; --mute:#8d8d8a; --mute2:#5f5f5c;
+  --paper:#f2f1ed; --paper2:#e7e5df; --ink-d:#0d0d0d; --mute-d:#6b6a66;
+  --star:#f5f5f3; --ok:#3ddc84;
+  --r:18px; --ease:cubic-bezier(.22,1,.36,1); --ease2:cubic-bezier(.65,0,.35,1);
+  --pad:clamp(16px,4vw,56px);
+  --fd:'Montserrat',system-ui,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.lock{position:fixed;left:0;right:0;overflow:hidden;width:100%}
+img{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1080px;margin:0 auto;padding:0 var(--pad)}
-h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif;line-height:1.05;letter-spacing:-.01em}
-header{padding:calc(18px + env(safe-area-inset-top)) 0 18px;border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between}
-header img{height:34px;width:auto}
-header a.s{font-size:13px;color:var(--mute)}
-.hero{padding-top:clamp(56px,10vw,120px);padding-bottom:clamp(40px,7vw,80px)}
-.tag{display:inline-block;font:600 12px 'Montserrat';letter-spacing:.18em;text-transform:uppercase;color:var(--wa);border:1px solid rgba(37,211,102,.4);padding:8px 14px;border-radius:99px;margin-bottom:26px}
-h1{font-size:clamp(38px,8vw,84px);font-weight:900;max-width:14ch}
-h1 em{font-style:normal;color:var(--wa)}
-.lead{margin-top:24px;max-width:560px;color:var(--mute);font-size:clamp(16px,2.2vw,19px)}
-.btn{display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 30px;border-radius:99px;background:var(--wa);color:#04210f;font:800 14px 'Montserrat';letter-spacing:.08em;text-transform:uppercase;transition:transform .4s var(--ease),box-shadow .4s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(37,211,102,.35)}
-.btn svg{width:22px;height:22px}
-.cta{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.cta small{color:var(--mute);font-size:13px}
-section{padding:clamp(40px,7vw,84px) 0;border-top:1px solid var(--line)}
-section h2{font-size:clamp(28px,5vw,46px);font-weight:800;margin-bottom:34px;max-width:18ch}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px}
-.card .n{font:900 14px 'Montserrat';color:var(--wa);letter-spacing:.14em}
-.card h3{font-size:21px;font-weight:800;margin:14px 0 10px}
-.card p{color:var(--mute);font-size:15px}
-.who{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.who .card{padding:22px}
-.who .card h3{font-size:18px;margin:0 0 6px}
-.faq details{border-bottom:1px solid var(--line);padding:20px 0}
-.faq summary{cursor:pointer;font:700 17px 'Montserrat';list-style:none;display:flex;justify-content:space-between;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--wa);font-size:22px;line-height:1}
-.faq details[open] summary::after{content:"–"}
-.faq p{color:var(--mute);margin-top:12px;max-width:640px}
-.final{text-align:center}
-.final h2{margin-inline:auto;max-width:16ch}
-.final .cta{justify-content:center}
-footer{border-top:1px solid var(--line);padding:28px 0 calc(28px + env(safe-area-inset-bottom));color:var(--mute);font-size:13px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
-footer a:hover{color:var(--ink)}
-.wa-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:9;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px rgba(37,211,102,.35)}
+::selection{background:var(--ink);color:var(--bg)}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--pad)}
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:90;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-2%,6%)}80%{transform:translate(5%,-2%)}100%{transform:translate(0,0)}}
+
+/* ---------- preloader ---------- */
+#loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:var(--bg);transition:clip-path 1.1s var(--ease2)}
+#loader.out{clip-path:inset(0 0 100% 0)}
+#loader .lk{height:88px;width:auto;opacity:0;transform:translateY(16px) scale(.9);animation:lk .9s var(--ease) .1s forwards}
+#loader .lw{display:flex;gap:.04em;margin-top:22px;font-family:var(--fd);font-weight:700;font-size:clamp(22px,5vw,40px);letter-spacing:.06em;overflow:hidden;white-space:pre}
+#loader .lw span{display:inline-block;transform:translateY(110%);animation:up .8s var(--ease) forwards}
+#loader .bar{position:absolute;left:50%;bottom:12vh;width:160px;height:1px;background:var(--line2);transform:translateX(-50%);overflow:hidden}
+#loader .bar i{position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .3s linear}
+#loader .pct{position:absolute;bottom:calc(12vh + 14px);left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;color:var(--mute)}
+.ld-in{display:flex;flex-direction:column;align-items:center}
+@keyframes lk{to{opacity:1;transform:none}}
+@keyframes up{to{transform:none}}
+
+/* ---------- cursor ---------- */
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:150;border-radius:50%;display:none}
+@media (pointer:fine){.cur,.cur-dot{display:block}}
+.cur{width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid rgba(255,255,255,.55);mix-blend-mode:difference;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .35s,border-color .35s;display:grid;place-items:center}
+.cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:#fff;mix-blend-mode:difference}
+.cur span{font:700 10px var(--fd);letter-spacing:.18em;color:#000;opacity:0;transition:opacity .2s}
+.cur.big{width:84px;height:84px;margin:-42px 0 0 -42px;background:#fff;border-color:#fff}
+.cur.big span{opacity:1}
+.cur.hov{width:58px;height:58px;margin:-29px 0 0 -29px}
+
+/* ---------- progress + nav ---------- */
+.prog{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--ink);transform-origin:left;transform:scaleX(0);z-index:120}
+nav.top{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,backdrop-filter .4s,transform .5s var(--ease),border-color .4s;border-bottom:1px solid transparent}
+nav.top.solid{background:rgba(10,10,10,.72);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border-color:var(--line)}
+nav.top.hide{transform:translateY(-100%)}
+nav .row{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img.k{height:32px;width:auto}
+.brand .w{font:700 16px/1 var(--fd);letter-spacing:.06em;white-space:nowrap}
+nav .links{display:flex;gap:34px;font:600 12px var(--fd);letter-spacing:.16em;text-transform:uppercase}
+nav .links a{position:relative;padding:6px 0;color:#cfcfcc;transition:color .3s}
+nav .links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+nav .links a:hover{color:var(--ink)}
+nav .links a:hover::after{transform:scaleX(1);transform-origin:left}
+.bagbtn{position:relative;display:flex;align-items:center;gap:10px;height:42px;padding:0 16px 0 14px;border:1px solid var(--line2);border-radius:99px;font:700 12px var(--fd);letter-spacing:.12em;text-transform:uppercase;transition:background .3s,color .3s,border-color .3s}
+.bagbtn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bagbtn svg{width:18px;height:18px}
+.bagbtn .n{min-width:20px;height:20px;border-radius:99px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:11px;letter-spacing:0;padding:0 6px;transition:transform .4s var(--ease)}
+.bagbtn:hover .n{background:var(--bg);color:var(--ink)}
+.bagbtn.bump{animation:bump .6s var(--ease)}
+@keyframes bump{30%{transform:scale(1.14)}60%{transform:scale(.96)}}
+@media(max-width:860px){nav .links{display:none}.brand .w{font-size:14px}.brand img.k{height:28px}.bagbtn .t{display:none}.bagbtn{padding:0 12px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:110px 0 70px}
+.hero .spot{position:absolute;inset:0;background:radial-gradient(600px circle at var(--mx,70%) var(--my,40%),rgba(255,255,255,.09),transparent 60%);pointer-events:none;transition:background .1s}
+.hero .giant{position:absolute;left:0;bottom:-2vw;white-space:nowrap;font:900 clamp(120px,24vw,380px)/.8 var(--fd);letter-spacing:-.02em;color:rgba(255,255,255,.035);pointer-events:none;will-change:transform;user-select:none}
+.hero .grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;width:100%}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:700 11px var(--fd);letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.hero h1{font:900 clamp(40px,6.2vw,96px)/.92 var(--fd);letter-spacing:-.035em;margin:22px 0 26px;text-transform:uppercase}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em;white-space:nowrap}
+.hero h1 .ln>span{display:inline-block;transform:translateY(105%)}
+.hero h1 .o{color:#77776f}
+body.ready .hero h1 .ln>span{animation:up 1.1s var(--ease) forwards}
+body.ready .hero h1 .ln:nth-child(2)>span{animation-delay:.1s}
+body.ready .hero h1 .ln:nth-child(3)>span{animation-delay:.2s}
+.hero p.lead{max-width:440px;color:#bdbdb9;font-size:clamp(15px,1.3vw,17px)}
+.fade-up{opacity:0;transform:translateY(24px)}
+body.ready .fade-up{animation:fu 1s var(--ease) forwards;animation-delay:var(--d,.4s)}
+@keyframes fu{to{opacity:1;transform:none}}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:99px;font:800 12px var(--fd);letter-spacing:.16em;text-transform:uppercase;overflow:hidden;isolation:isolate;transition:color .45s var(--ease),border-color .45s,transform .3s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;transform:translateY(101%);transition:transform .5s var(--ease)}
+.btn:hover::before{transform:none}
+.btn-w{background:var(--ink);color:var(--bg)}
+.btn-w::before{background:#c9c9c5}
+.btn-o{border:1px solid var(--line2);color:var(--ink)}
+.btn-o::before{background:var(--ink)}
+.btn-o:hover{color:var(--bg);border-color:var(--ink)}
+.btn-d{background:var(--ink-d);color:var(--paper)}
+.btn-d::before{background:#333}
+.btn svg{width:16px;height:16px;transition:transform .45s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.hero .meta{display:flex;gap:28px;margin-top:46px;flex-wrap:wrap}
+.hero .meta div{font:800 26px var(--fd);letter-spacing:-.02em}
+.hero .meta small{display:block;font:500 11px var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:2px}
+.stage{position:relative;height:min(74vh,640px);perspective:1400px}
+.stage .card3d{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .8s var(--ease)}
+.shot{position:absolute;width:62%;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#1a1a1a;box-shadow:0 40px 80px -20px rgba(0,0,0,.8);transition:transform 1.2s var(--ease),opacity 1.2s var(--ease),filter 1.2s;will-change:transform}
+.shot img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+.shot .lbl{position:absolute;left:14px;bottom:14px;right:14px;display:flex;justify-content:space-between;align-items:end;font:700 11px var(--fd);letter-spacing:.14em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.shot .lbl b{font-size:15px;letter-spacing:.02em}
+.shot[data-p="0"]{transform:translate3d(32%,6%,80px) rotate(2deg);z-index:3}
+.shot[data-p="1"]{transform:translate3d(2%,-2%,0) rotate(-7deg);z-index:2;filter:brightness(.55)}
+.shot[data-p="2"]{transform:translate3d(58%,-8%,-60px) rotate(9deg);z-index:1;filter:brightness(.35)}
+.shot .lbl{transition:opacity .6s}
+.shot[data-p="1"] .lbl,.shot[data-p="2"] .lbl{opacity:0}
+.shot.enter{opacity:0}
+body.ready .shot.enter{opacity:1}
+.stage .dots{position:absolute;right:0;bottom:-6px;display:flex;gap:8px}
+.stage .dots i{width:26px;height:2px;background:var(--line2);position:relative;overflow:hidden}
+.stage .dots i.on::after{content:"";position:absolute;inset:0;background:var(--ink);transform-origin:left;animation:fill 4.2s linear forwards}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.scrollcue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font:700 10px var(--fd);letter-spacing:.3em;color:var(--mute)}
+.scrollcue i{width:1px;height:42px;background:var(--line2);position:relative;overflow:hidden}
+.scrollcue i::after{content:"";position:absolute;left:0;top:-40%;width:100%;height:40%;background:var(--ink);animation:drip 1.8s var(--ease2) infinite}
+@keyframes drip{to{top:100%}}
+@media(max-width:900px){
+  .hero{padding-top:96px}
+  .hero .grid{grid-template-columns:1fr;gap:28px}
+  .stage{height:auto;aspect-ratio:1/1;max-height:440px;order:-1;margin-top:6px}
+  .shot{width:58%}
+  .scrollcue{display:none}
+  .hero .meta{margin-top:30px;gap:22px}
+}
+
+/* ---------- marquee ---------- */
+.marq{border-block:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--bg);position:relative;z-index:2}
+.marq .tr{display:flex;width:max-content;animation:mq 38s linear infinite}
+.marq:hover .tr{animation-play-state:paused}
+.marq .it{display:flex;align-items:center;gap:40px;padding-right:40px;font:900 clamp(26px,4vw,52px)/1 var(--fd);letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap}
+.marq .it .o{color:#4d4d49}
+.marq .it img{width:26px;opacity:.85}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- section heads ---------- */
+section{position:relative}
+.sec{padding:clamp(80px,11vw,150px) 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:clamp(36px,5vw,60px);flex-wrap:wrap}
+.sh h2{font:900 clamp(40px,6.4vw,96px)/.92 var(--fd);letter-spacing:-.035em;text-transform:uppercase;margin-top:16px}
+.sh h2 .o{color:#77776f}
+.rev .sh h2 .o{color:#a3a198}
+.sh p{max-width:380px;color:var(--mute)}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.05em}
+.split .w>span{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease);transition-delay:calc(var(--i)*60ms)}
+.split.in .w>span{transform:none}
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+.rev{background:var(--paper);color:var(--ink-d)}
+.rev .eyebrow{color:var(--mute-d)}
+.rev .sh p{color:var(--mute-d)}
+footer{background:var(--bg);padding:clamp(70px,9vw,120px) 0 30px;overflow:hidden;position:relative}
+.fcta{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;padding-bottom:60px;border-bottom:1px solid var(--line)}
+.fcta h2{font:900 clamp(40px,6.5vw,100px)/.9 var(--fd);letter-spacing:-.04em;text-transform:uppercase}
+.fcta h2 .o{color:#77776f}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;padding:50px 0}
+@media(max-width:860px){.fgrid{grid-template-columns:1fr 1fr}}
+.fgrid h5{font:800 11px var(--fd);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.fgrid a,.fgrid p{display:block;color:#cfcfcc;font-size:14.5px;margin-bottom:8px;transition:color .3s}
+.fgrid a:hover{color:var(--ink)}
+.fgrid a.brand{display:flex;color:var(--ink)}
+.fbig{font:900 clamp(40px,9.4vw,150px)/.8 var(--fd);letter-spacing:-.04em;text-align:center;color:var(--ink);opacity:.07;margin-top:20px;user-select:none;white-space:nowrap}
+.fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--mute2);font-size:12.5px;margin-top:-20px;position:relative}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:95;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px rgba(37,211,102,.35);transform:scale(0);transition:transform .6s var(--ease)}
+.wa-float.on{transform:scale(1)}
+.wa-float:hover{transform:scale(1.08)}
 .wa-float svg{width:28px;height:28px}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.rv.on{opacity:1;transform:none}
-@media(max-width:760px){.steps{grid-template-columns:1fr}.who{grid-template-columns:1fr}.btn{width:100%;justify-content:center}.cta small{width:100%;text-align:center}}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid #25D366;animation:ring 2.4s var(--ease) infinite}
+@keyframes ring{from{transform:scale(1);opacity:.8}to{transform:scale(1.6);opacity:0}}
+  .fgrid{grid-template-columns:1fr 1fr;gap:24px 16px}
+  .fgrid>div:first-child{grid-column:1/-1}
+  .fgrid a{padding:6px 0;margin:0}
+  .fbig{font-size:22vw}
+  .wa-float{width:52px;height:52px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom))}
+  .wa-float svg{width:25px;height:25px}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--pad)}
+.hero .meta div b{font:800 26px var(--fd);letter-spacing:-.02em;display:block}
+.step{border:1px solid var(--line);border-radius:24px;padding:clamp(24px,3vw,38px);background:var(--bg2);position:relative;overflow:hidden;transition:transform .5s var(--ease),border-color .3s}
+.step:hover{transform:translateY(-4px);border-color:#555}
+.step .num{font:900 clamp(64px,8vw,110px)/.8 var(--fd);letter-spacing:-.04em;color:#2a2a28}
+.step h3{font:900 clamp(22px,2.4vw,30px)/1.05 var(--fd);letter-spacing:-.02em;text-transform:uppercase;margin:22px 0 12px}
+.step p{color:var(--mute);max-width:34ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ben{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.bc{border:1px solid #d9d6cd;border-radius:24px;padding:clamp(22px,3vw,34px);background:#fbfaf7;transition:transform .5s var(--ease)}
+.bc:hover{transform:translateY(-4px)}
+.bc .ic{width:48px;height:48px;border-radius:14px;background:var(--ink-d);color:var(--paper);display:grid;place-items:center;margin-bottom:20px}
+.bc .ic svg{width:24px;height:24px}
+.bc h3{font:900 clamp(20px,2.2vw,28px)/1.05 var(--fd);letter-spacing:-.02em;text-transform:uppercase;margin-bottom:10px}
+.bc p{color:var(--mute-d)}
+.faq details{border-bottom:1px solid var(--line);padding:24px 0}
+.faq summary{cursor:pointer;font:800 clamp(16px,1.6vw,20px) var(--fd);letter-spacing:-.005em;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;transition:background .3s,color .3s,transform .5s var(--ease)}
+.faq summary i::before{content:"+";font:600 20px/1 var(--fb)}
+.faq details[open] summary i{transform:rotate(45deg);background:var(--ink);color:var(--bg)}
+.faq details>p{color:var(--mute);margin-top:14px;max-width:62ch}
+.ctaband{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+@media(max-width:900px){.steps,.ben{grid-template-columns:1fr}.step{min-height:0}.hero .grid{grid-template-columns:1fr}.stage{order:-1}}
+@media(max-width:760px){.hero .meta div b{font-size:22px}.btn{height:52px}.ctaband .btn,.hero .ctas .btn{flex:1 1 100%}}
+
 </style>
 </head>
 <body>
-<header><div class="wrap"><a href="https://korvenoficial.store"><img src="logo.png" alt="Korven"></a><a class="s" href="https://korvenoficial.store">Ver la tienda</a></div></header>
+<div class="grain" aria-hidden="true"></div>
+<div class="prog" id="prog"></div>
+<div class="cur" id="cur"><span>VER</span></div><div class="cur-dot" id="curd"></div>
 
-<main>
-<div class="wrap hero">
-  <span class="tag rv">Trabaja con nosotros</span>
-  <h1 class="rv">Tú consigues los clientes. <em>Nosotros despachamos.</em></h1>
-  <p class="lead rv">Vende sneakers Korven sin comprar inventario, sin empacar y sin hacer envíos. Tú te encargas de encontrar a quien quiera un par; de lo demás nos ocupamos nosotros.</p>
-  <div class="cta rv"><a class="btn" data-wa="join"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>Quiero trabajar con Korven</a><small>Te respondemos por WhatsApp.</small></div>
+<div id="loader" aria-hidden="true">
+  <div class="ld-in"><img class="lk" src="logo.png" alt=""><div class="lw">KORVEN</div></div>
+  <div class="pct" id="pct">0%</div>
+  <div class="bar"><i id="lbar"></i></div>
 </div>
 
-<section><div class="wrap">
-  <h2 class="rv">Así funciona</h2>
-  <div class="steps">
-    <div class="card rv"><span class="n">01</span><h3>Recibes tu enlace</h3><p>Te creamos un código y un enlace personal. Todo cliente que compre desde tu enlace queda registrado a tu nombre.</p></div>
-    <div class="card rv"><span class="n">02</span><h3>Consigues clientes</h3><p>Compartes el catálogo por WhatsApp, Instagram, estados o donde tengas contactos. Tú hablas con el cliente.</p></div>
-    <div class="card rv"><span class="n">03</span><h3>Nosotros despachamos</h3><p>El cliente hace su pedido en la tienda, nosotros lo empacamos y lo enviamos. Tú ganas por cada venta.</p></div>
+<nav class="top" id="nav">
+  <div class="wrap row">
+    <a href="#top" class="brand" aria-label="Korven"><img class="k" src="logo.png" alt=""><span class="w">KORVEN</span></a>
+    <div class="links"><a href="#como">Cómo funciona</a><a href="#ganas">Lo que ganas</a><a href="#preguntas">Preguntas</a><a href="https://korvenoficial.store">Tienda</a></div>
+    <a class="bagbtn" data-wa="join">Aplicar</a>
   </div>
-</div></section>
+</nav>
 
-<section><div class="wrap">
-  <h2 class="rv">Lo que ganas al trabajar con nosotros</h2>
-  <div class="who">
-    <div class="card rv"><h3>Cero inversión</h3><p>No compras mercancía ni pagas nada para empezar.</p></div>
-    <div class="card rv"><h3>Sin logística</h3><p>No empacas ni envías: nosotros despachamos cada pedido.</p></div>
-    <div class="card rv"><h3>Tu ganancia es tuya</h3><p>Ganas la diferencia entre el precio mayorista y el precio al que vendes.</p></div>
-    <div class="card rv"><h3>Catálogo listo</h3><p>Fotos, tallas y precios ya están en la tienda. Solo compartes tu enlace.</p></div>
+<header class="hero" id="top">
+  <div class="spot"></div>
+  <div class="giant" id="giant">TRABAJA · KORVEN</div>
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow fade-up" style="--d:.3s">Trabaja con nosotros · Vendedores</span>
+      <h1><span class="ln"><span>Tú buscas</span></span><span class="ln"><span>los clientes.</span></span><span class="ln"><span class="o">Nosotros</span></span><span class="ln"><span class="o">despachamos.</span></span></h1>
+      <p class="lead fade-up" style="--d:.55s">Vende sneakers Korven sin comprar inventario, sin empacar y sin hacer envíos. Tú consigues a quien quiera un par; de lo demás nos encargamos nosotros.</p>
+      <div class="ctas fade-up" style="--d:.7s">
+        <a class="btn btn-w mag" data-wa="join">Quiero trabajar con Korven <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#como" class="btn btn-o mag">Cómo funciona</a>
+      </div>
+      <div class="meta fade-up" style="--d:.85s">
+        <div><b>$0</b><small>Inversión</small></div>
+        <div><b>100%</b><small>Despacho nuestro</small></div>
+        <div><b>36–44</b><small>Tallas</small></div>
+      </div>
+    </div>
+    <div class="stage" id="stage"><div class="card3d" id="card3d">
+      <div class="shot enter" data-p="0" style="transition-delay:.4s"><img src="img/j3-fragment-01.webp" alt="Jordan 3 Fragment"><div class="lbl"><span>Jordan<br><b>3 Fragment</b></span></div></div>
+      <div class="shot enter" data-p="1" style="transition-delay:.52s"><img src="img/lv-skate-black-01.webp" alt="Louis Vuitton Skate"><div class="lbl"><span>Louis Vuitton<br><b>Skate</b></span></div></div>
+      <div class="shot enter" data-p="2" style="transition-delay:.64s"><img src="img/amiri-01.webp" alt="Amiri"><div class="lbl"><span>Amiri</span></div></div>
+    </div></div>
   </div>
-</div></section>
+  <div class="scrollcue">SCROLL<i></i></div>
+</header>
 
-<section class="faq"><div class="wrap">
-  <h2 class="rv">Preguntas frecuentes</h2>
-  <details class="rv"><summary>¿Necesito experiencia o dinero para empezar?</summary><p>No. Solo necesitas un celular y ganas de vender. No hay inversión inicial.</p></details>
-  <details class="rv"><summary>¿Cómo sé cuáles ventas son mías?</summary><p>Cada cliente que entra por tu enlace personal queda asociado a tu código, y tus ventas aparecen registradas a tu nombre.</p></details>
-  <details class="rv"><summary>¿Quién envía los pedidos?</summary><p>Nosotros. Tú no tocas el producto: confirmamos con el cliente, empacamos y despachamos.</p></details>
-  <details class="rv"><summary>¿Cómo empiezo?</summary><p>Escríbenos por WhatsApp con tu nombre y ciudad. Te creamos tu código y te explicamos todo.</p></details>
-</div></section>
+<div class="marq" aria-hidden="true"><div class="tr" id="marq"></div></div>
 
-<section class="final"><div class="wrap">
-  <h2 class="rv">¿Listo para empezar?</h2>
-  <div class="cta rv"><a class="btn" data-wa="join">Escríbenos por WhatsApp</a></div>
-</div></section>
-</main>
+<section class="sec" id="como">
+  <div class="wrap">
+    <div class="sh">
+      <div><span class="eyebrow">Paso a paso</span><h2 class="split">Así de <span class="o">simple.</span></h2></div>
+      <p class="rv">Tres pasos y empiezas a vender. Sin experiencia y sin invertir un peso.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="num">01</div><h3>Recibes tu enlace</h3><p>Te creamos un código y un enlace personal. Cada cliente que compre desde tu enlace queda a tu nombre.</p></div>
+      <div class="step rv" style="--d:.1s"><div class="num">02</div><h3>Buscas clientes</h3><p>Compartes el catálogo por WhatsApp, Instagram, estados o donde tengas contactos. Tú hablas con el cliente.</p></div>
+      <div class="step rv" style="--d:.2s"><div class="num">03</div><h3>Nosotros despachamos</h3><p>El cliente hace su pedido en la tienda, nosotros lo empacamos y lo enviamos. Tú ganas por cada venta.</p></div>
+    </div>
+  </div>
+</section>
 
-<footer><div class="wrap"><span>© Korven</span><span><a href="https://korvenoficial.store">korvenoficial.store</a> · <a href="https://www.instagram.com/korvenstore_/" target="_blank" rel="noopener">@korvenstore_</a></span></div></footer>
+<section class="sec rev" id="ganas">
+  <div class="wrap">
+    <div class="sh">
+      <div><span class="eyebrow">Beneficios</span><h2 class="split">Lo que <span class="o">ganas.</span></h2></div>
+      <p class="rv">Todo lo pesado lo hacemos nosotros. Tú solo te dedicas a vender.</p>
+    </div>
+    <div class="ben">
+      <div class="bc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M17 7.5c0-1.9-2.2-3-5-3s-5 1.1-5 3 2.2 2.6 5 3.5 5 1.6 5 3.5-2.2 3-5 3-5-1.1-5-3"/></svg></div><h3>Cero inversión</h3><p>No compras mercancía ni pagas nada para empezar.</p></div>
+      <div class="bc rv" style="--d:.08s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7M12 11v10"/></svg></div><h3>Sin logística</h3><p>No empacas ni envías: nosotros despachamos cada pedido.</p></div>
+      <div class="bc rv" style="--d:.16s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><h3>Tu ganancia es tuya</h3><p>Ganas la diferencia entre el precio mayorista y el precio al que vendes.</p></div>
+      <div class="bc rv" style="--d:.24s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 15l5-4 4 3 3-2 6 4M8 20h8"/></svg></div><h3>Catálogo listo</h3><p>Fotos, tallas y precios ya están en la tienda. Solo compartes tu enlace.</p></div>
+    </div>
+  </div>
+</section>
 
-<a class="wa-float" data-wa="join" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+<section class="sec faq" id="preguntas">
+  <div class="wrap">
+    <div class="sh">
+      <div><span class="eyebrow">Dudas</span><h2 class="split">Preguntas <span class="o">frecuentes.</span></h2></div>
+    </div>
+    <div>
+      <details class="rv"><summary>¿Necesito experiencia o dinero para empezar?<i></i></summary><p>No. Solo necesitas un celular y ganas de vender. No hay inversión inicial.</p></details>
+      <details class="rv"><summary>¿Cómo sé cuáles ventas son mías?<i></i></summary><p>Cada cliente que entra por tu enlace personal queda asociado a tu código, y tus ventas aparecen registradas a tu nombre.</p></details>
+      <details class="rv"><summary>¿Quién envía los pedidos?<i></i></summary><p>Nosotros. Tú no tocas el producto: confirmamos con el cliente, empacamos y despachamos.</p></details>
+      <details class="rv"><summary>¿Cómo empiezo?<i></i></summary><p>Escríbenos por WhatsApp con tu nombre y ciudad. Te creamos tu código y te explicamos todo.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcta">
+      <h2 class="split">¿Listo para <span class="o">vender?</span></h2>
+      <a class="btn btn-w mag" data-wa="join">Escríbenos por WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="fgrid">
+      <div><a href="#top" class="brand" style="margin-bottom:18px"><img class="k" src="logo.png" alt="" style="height:40px"><span class="w" style="font-size:18px">KORVEN</span></a><p style="max-width:300px;color:var(--mute)">Sneakers seleccionados para quienes no pasan desapercibidos.</p></div>
+      <div><h5>Trabaja</h5><a href="#como">Cómo funciona</a><a href="#ganas">Lo que ganas</a><a href="#preguntas">Preguntas</a></div>
+      <div><h5>Tienda</h5><a href="https://korvenoficial.store">Ver colección</a><a href="https://korvenoficial.store/#resenas">Reseñas</a></div>
+      <div><h5>Síguenos</h5><a href="https://www.instagram.com/korvenstore_/" target="_blank" rel="noopener">Instagram</a><a data-wa="join" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+    <div class="fbig">KORVEN</div>
+    <div class="fbot"><span>© <span id="yr"></span> Korven. Todos los derechos reservados.</span><span>korvenoficial.store</span></div>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="join" id="waFloat" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
 
 <script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia('(pointer:fine)').matches;
+/* pantalla de carga */
+(function(){const bar=$('#lbar'),pct=$('#pct');let p=0,ended=false;const t0=performance.now();
+  const end=()=>{if(ended)return;ended=true;bar.style.transform='scaleX(1)';pct.textContent='100%';
+    setTimeout(()=>{const l=$('#loader');l.classList.add('out');document.body.classList.add('ready');setTimeout(()=>l.remove(),1200)},250)};
+  const step=()=>{if(ended)return;const el=performance.now()-t0;p+=((el>1300?100:Math.min(88,el/14))-p)*.18;if(p>99)p=100;
+    bar.style.transform=`scaleX(${p/100})`;pct.textContent=Math.round(p)+'%';if(p>=100)end();else requestAnimationFrame(step)};
+  RM?end():requestAnimationFrame(step);setTimeout(end,4000)})();
+/* WhatsApp con emojis como escapes Unicode */
 const WA='573052977366';
 const MSG='Hola Korven \u{1F44B} Quiero trabajar con ustedes vendiendo sus sneakers. \u{1F45F}\n\nMi nombre es:\nMi ciudad es:';
-document.querySelectorAll('[data-wa]').forEach(a=>{a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(MSG);a.target='_blank';a.rel='noopener'});
-const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12}):null;
-document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('on'));
+$$('[data-wa]').forEach(a=>{a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(MSG);a.target='_blank';a.rel='noopener'});
+/* marquee */
+(function(){const w=['Cero inversión','Sin inventario','Nosotros despachamos','Tú vendes','Tu enlace, tus ventas'];
+  const one=w.map((b,i)=>`<span class="${i%2?'o':''}">${b}</span><img src="logo.png" alt="">`).join('');
+  $('#marq').innerHTML=`<div class="it">${one}</div><div class="it">${one}</div>`})();
+/* cursor */
+if(FINE&&!RM){const cur=$('#cur'),curd=$('#curd');let tx=0,ty=0,cx=0,cy=0;
+  addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;curd.style.transform=`translate(${tx}px,${ty}px)`});
+  (function loop(){cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cur.style.transform=`translate(${cx}px,${cy}px)`;requestAnimationFrame(loop)})();
+  document.addEventListener('mouseover',e=>{cur.classList.toggle('hov',!!e.target.closest('a,button,summary'))});
+  $$('.mag').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')})}
+/* aparición */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.1});
+function splitWords(el){const walk=(node)=>{[...node.childNodes].forEach(n=>{if(n.nodeType===3){const frag=document.createDocumentFragment();
+  n.textContent.split(/(\s+)/).forEach(t=>{if(!t)return;if(/^\s+$/.test(t)){frag.append(t);return}const w=document.createElement('span');w.className='w';const s=document.createElement('span');s.textContent=t;s.style.setProperty('--i',splitWords.i++);w.append(s);frag.append(w)});n.replaceWith(frag)}else walk(n)})};
+  splitWords.i=0;walk(el)}
+$$('.split').forEach(el=>{splitWords(el);io.observe(el)});$$('.rv').forEach(el=>io.observe(el));
+/* spot del hero, scroll */
+$('.hero').addEventListener('mousemove',e=>{const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.setProperty('--mx',(e.clientX-r.left)+'px');e.currentTarget.style.setProperty('--my',(e.clientY-r.top)+'px')});
+const nav=$('#nav'),giant=$('#giant'),prog=$('#prog');let lastY=0;
+function onScroll(){const y=scrollY;nav.classList.toggle('solid',y>40);nav.classList.toggle('hide',y>lastY&&y>600);lastY=y;
+  prog.style.transform=`scaleX(${y/(document.documentElement.scrollHeight-innerHeight||1)})`;
+  if(!RM&&y<innerHeight*1.2)giant.style.transform=`translate3d(${-y*.35}px,0,0)`;
+  $('#waFloat').classList.toggle('on',y>innerHeight*.8)}
+addEventListener('scroll',()=>requestAnimationFrame(onScroll),{passive:true});onScroll();
+$('#yr').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
