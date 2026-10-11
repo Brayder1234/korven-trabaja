@@ -4,9 +4,23 @@ T=open(os.path.expanduser('~/Downloads/setup-shopify/pasos-urbanos-assets/templa
 def L(a,b): return '\n'.join(T[a-1:b])
 i_filters=next(i for i,l in enumerate(T) if l.startswith('/* ---------- filters'))
 css = L(14,i_filters)                      # base, loader, cursor, nav, hero, botones, marquee, títulos
-css += '\n'+L(267,269)                     # .rev (sección en papel)
-css += '\n'+L(365,365)+'\n'+L(380,390)      # footer
-css += '\n'+L(493,498)+'\n'+L(584,587)+'\n'+L(590,591)
+# reglas tomadas por selector (no por número de línea: la plantilla cambia)
+def R(*pref):
+    return '\n'.join(l for l in T if l.startswith(pref))
+css += '\n'+R('.rev{','.rev .')                                   # sección en papel
+css += '\n'+R('footer{','.fcta','.fgrid','.fbig','.fbot')         # footer
+css += '\n'+R('.wa-float','@keyframes ring')                      # botón flotante de WhatsApp
+css += """
+@media(max-width:760px){
+  .fgrid{grid-template-columns:1fr 1fr;gap:24px 16px}
+  .fgrid>div:first-child{grid-column:1/-1}
+  .fgrid a{padding:6px 0;margin:0}
+  .fbig{font-size:22vw}
+  .wa-float{width:52px;height:52px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom))}
+  .wa-float svg{width:25px;height:25px}
+}"""
+for need in ('.wa-float svg{','.fcta{','.rev{','@keyframes ring'):
+    assert need in css, 'falta '+need
 css += r'''
 .wrap{max-width:1440px;margin:0 auto;padding:0 var(--pad)}
 .hero .meta div b{font:800 26px var(--fd);letter-spacing:-.02em;display:block}
