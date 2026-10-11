@@ -67,7 +67,7 @@ html=r'''<!doctype html>
   <div class="wrap row">
     <a href="#top" class="brand" aria-label="Korven"><img class="k" src="logo.png" alt=""><span class="w">KORVEN</span></a>
     <div class="links"><a href="#como">Cómo funciona</a><a href="#ganas">Lo que ganas</a><a href="#preguntas">Preguntas</a><a href="https://korvenoficial.store">Tienda</a></div>
-    <a class="bagbtn" data-wa="join">Aplicar</a>
+    <a class="bagbtn" data-wa="join">Unirme</a>
   </div>
 </nav>
 
@@ -83,6 +83,7 @@ html=r'''<!doctype html>
         <a class="btn btn-w mag" data-wa="join">Quiero trabajar con Korven <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="#como" class="btn btn-o mag">Cómo funciona</a>
       </div>
+      <p class="fade-up" style="--d:.78s;margin-top:14px;color:var(--mute);font-size:13.5px">Te llevamos a nuestro grupo de WhatsApp, donde te explicamos todo.</p>
       <div class="meta fade-up" style="--d:.85s">
         <div><b>$0</b><small>Inversión</small></div>
         <div><b>100%</b><small>Despacho nuestro</small></div>
@@ -138,7 +139,7 @@ html=r'''<!doctype html>
       <details class="rv"><summary>¿Necesito experiencia o dinero para empezar?<i></i></summary><p>No. Solo necesitas un celular y ganas de vender. No hay inversión inicial.</p></details>
       <details class="rv"><summary>¿Cómo sé cuáles ventas son mías?<i></i></summary><p>Cada cliente que entra por tu enlace personal queda asociado a tu código, y tus ventas aparecen registradas a tu nombre.</p></details>
       <details class="rv"><summary>¿Quién envía los pedidos?<i></i></summary><p>Nosotros. Tú no tocas el producto: confirmamos con el cliente, empacamos y despachamos.</p></details>
-      <details class="rv"><summary>¿Cómo empiezo?<i></i></summary><p>Escríbenos por WhatsApp con tu nombre y ciudad. Te creamos tu código y te explicamos todo.</p></details>
+      <details class="rv"><summary>¿Cómo empiezo?<i></i></summary><p>Únete a nuestro grupo de WhatsApp. Ahí te explicamos todo paso a paso y te creamos tu código y tu enlace de ventas.</p></details>
     </div>
   </div>
 </section>
@@ -147,20 +148,20 @@ html=r'''<!doctype html>
   <div class="wrap">
     <div class="fcta">
       <h2 class="split">¿Listo para <span class="o">vender?</span></h2>
-      <a class="btn btn-w mag" data-wa="join">Escríbenos por WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-w mag" data-wa="join">Unirme al grupo de WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="fgrid">
       <div><a href="#top" class="brand" style="margin-bottom:18px"><img class="k" src="logo.png" alt="" style="height:40px"><span class="w" style="font-size:18px">KORVEN</span></a><p style="max-width:300px;color:var(--mute)">Sneakers seleccionados para quienes no pasan desapercibidos.</p></div>
       <div><h5>Trabaja</h5><a href="#como">Cómo funciona</a><a href="#ganas">Lo que ganas</a><a href="#preguntas">Preguntas</a></div>
       <div><h5>Tienda</h5><a href="https://korvenoficial.store">Ver colección</a><a href="https://korvenoficial.store/#resenas">Reseñas</a></div>
-      <div><h5>Síguenos</h5><a href="https://www.instagram.com/korvenstore_/" target="_blank" rel="noopener">Instagram</a><a data-wa="join" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div><h5>Síguenos</h5><a href="https://www.instagram.com/korvenstore_/" target="_blank" rel="noopener">Instagram</a><a data-wa="join" target="_blank" rel="noopener">Grupo de WhatsApp</a></div>
     </div>
     <div class="fbig">KORVEN</div>
     <div class="fbot"><span>© <span id="yr"></span> Korven. Todos los derechos reservados.</span><span>korvenoficial.store</span></div>
   </div>
 </footer>
 
-<a class="wa-float" data-wa="join" id="waFloat" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+<a class="wa-float" data-wa="join" id="waFloat" aria-label="Grupo de WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
 
 <script>
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -172,10 +173,9 @@ const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia(
   const step=()=>{if(ended)return;const el=performance.now()-t0;p+=((el>1300?100:Math.min(88,el/14))-p)*.18;if(p>99)p=100;
     bar.style.transform=`scaleX(${p/100})`;pct.textContent=Math.round(p)+'%';if(p>=100)end();else requestAnimationFrame(step)};
   RM?end():requestAnimationFrame(step);setTimeout(end,4000)})();
-/* WhatsApp con emojis como escapes Unicode */
-const WA='573052977366';
-const MSG='Hola Korven \u{1F44B} Quiero trabajar con ustedes vendiendo sus sneakers. \u{1F45F}\n\nMi nombre es:\nMi ciudad es:';
-$$('[data-wa]').forEach(a=>{a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(MSG);a.target='_blank';a.rel='noopener'});
+/* todos los botones llevan al grupo de WhatsApp de vendedores, donde se explica todo */
+const GRUPO='https://chat.whatsapp.com/HqqXs7UPL6r11v4TAcZApq';
+$$('[data-wa]').forEach(a=>{a.href=GRUPO;a.target='_blank';a.rel='noopener'});
 /* marquee */
 (function(){const w=['Cero inversión','Sin inventario','Nosotros despachamos','Tú vendes','Tu enlace, tus ventas'];
   const one=w.map((b,i)=>`<span class="${i%2?'o':''}">${b}</span><img src="logo.png" alt="">`).join('');
