@@ -221,6 +221,21 @@ footer{background:var(--bg);padding:clamp(70px,9vw,120px) 0 30px;overflow:hidden
 .faq summary i::before{content:"+";font:600 20px/1 var(--fb)}
 .faq details[open] summary i{transform:rotate(45deg);background:var(--ink);color:var(--bg)}
 .faq details>p{color:var(--mute);margin-top:14px;max-width:62ch}
+.prize{padding:clamp(50px,8vw,100px) 0 0}
+.pcard{position:relative;overflow:hidden;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding:clamp(28px,5vw,60px);border-radius:28px;background:var(--paper);color:var(--ink-d)}
+.pcard::after{content:"$500K";position:absolute;right:-2vw;bottom:-3vw;font:900 clamp(90px,16vw,240px)/.8 var(--fd);letter-spacing:-.04em;color:rgba(0,0,0,.05);pointer-events:none}
+.pcard .eyebrow{color:var(--mute-d)}
+.pcard h2{font:900 clamp(34px,5.4vw,80px)/.92 var(--fd);letter-spacing:-.035em;text-transform:uppercase;margin:16px 0 18px}
+.pcard h2 .o{color:#a3a198}
+.pcard p{color:var(--mute-d);max-width:480px}
+.pcard .amt{position:relative;z-index:1;justify-self:end;text-align:right}
+.pcard .amt b{display:block;font:900 clamp(56px,8vw,120px)/.9 var(--fd);letter-spacing:-.04em}
+.pcard .amt small{font:700 11px var(--fd);letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d)}
+.pcard .tyc{display:inline-block;margin-top:14px;font-size:12.5px;color:var(--mute-d);text-decoration:underline;text-underline-offset:3px}
+.pcard .btn{margin-top:26px}
+.hbadge{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:8px 14px;border-radius:99px;border:1px solid var(--line2);font:700 12px var(--fd);letter-spacing:.06em;color:var(--ink)}
+.hbadge i{font-style:normal;color:var(--mute)}
+@media(max-width:900px){.pcard{grid-template-columns:1fr}.pcard .amt{justify-self:start;text-align:left;order:-1}}
 .ctaband{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
 @media(max-width:900px){.steps,.ben{grid-template-columns:1fr}.step{min-height:0}.hero .grid{grid-template-columns:1fr}.stage{order:-1}}
 @media(max-width:760px){.hero .meta div b{font-size:22px}.btn{height:52px}.ctaband .btn,.hero .ctas .btn{flex:1 1 100%}}
@@ -259,6 +274,7 @@ footer{background:var(--bg);padding:clamp(70px,9vw,120px) 0 30px;overflow:hidden
         <a href="#como" class="btn btn-o mag">Cómo funciona</a>
       </div>
       <p class="fade-up" style="--d:.78s;margin-top:14px;color:var(--mute);font-size:13.5px">Te llevamos a nuestro grupo de WhatsApp, donde te explicamos todo.</p>
+      <a href="#premio" class="hbadge fade-up" style="--d:.82s">🏆 Participa por un premio de $500.000 <i>· Aplican TyC</i></a>
       <div class="meta fade-up" style="--d:.85s">
         <div><b>$0</b><small>Inversión</small></div>
         <div><b>100%</b><small>Despacho nuestro</small></div>
@@ -275,6 +291,21 @@ footer{background:var(--bg);padding:clamp(70px,9vw,120px) 0 30px;overflow:hidden
 </header>
 
 <div class="marq" aria-hidden="true"><div class="tr" id="marq"></div></div>
+
+<section class="prize" id="premio">
+  <div class="wrap">
+    <div class="pcard rv">
+      <div style="position:relative;z-index:1">
+        <span class="eyebrow">Premio para vendedores</span>
+        <h2 class="split">Vende y gana <span class="o">$500.000</span></h2>
+        <p>Todos los vendedores de Korven participan por un premio de <b style="color:var(--ink-d)">$500.000 pesos</b>. Únete, empieza a vender y entra en el concurso.</p>
+        <a class="tyc" data-wa="join">*Aplican términos y condiciones. Consúltalos en el grupo de WhatsApp.</a><br>
+        <a class="btn btn-d mag" data-wa="join">Quiero participar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="amt"><small>Premio</small><b>$500K</b><small>Aplican TyC</small></div>
+    </div>
+  </div>
+</section>
 
 <section class="sec" id="como">
   <div class="wrap">
@@ -314,6 +345,7 @@ footer{background:var(--bg);padding:clamp(70px,9vw,120px) 0 30px;overflow:hidden
       <details class="rv"><summary>¿Necesito experiencia o dinero para empezar?<i></i></summary><p>No. Solo necesitas un celular y ganas de vender. No hay inversión inicial.</p></details>
       <details class="rv"><summary>¿Cómo sé cuáles ventas son mías?<i></i></summary><p>Cada cliente que entra por tu enlace personal queda asociado a tu código, y tus ventas aparecen registradas a tu nombre.</p></details>
       <details class="rv"><summary>¿Quién envía los pedidos?<i></i></summary><p>Nosotros. Tú no tocas el producto: confirmamos con el cliente, empacamos y despachamos.</p></details>
+      <details class="rv"><summary>¿Cómo participo por el premio de $500.000?<i></i></summary><p>Todos los vendedores registrados participan. Las condiciones del premio (términos y condiciones) se explican en el grupo de WhatsApp.</p></details>
       <details class="rv"><summary>¿Cómo empiezo?<i></i></summary><p>Únete a nuestro grupo de WhatsApp. Ahí te explicamos todo paso a paso y te creamos tu código y tu enlace de ventas.</p></details>
     </div>
   </div>
@@ -352,7 +384,7 @@ const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia(
 const GRUPO='https://chat.whatsapp.com/HqqXs7UPL6r11v4TAcZApq';
 $$('[data-wa]').forEach(a=>{a.href=GRUPO;a.target='_blank';a.rel='noopener'});
 /* marquee */
-(function(){const w=['Cero inversión','Sin inventario','Nosotros despachamos','Tú vendes','Tu enlace, tus ventas'];
+(function(){const w=['Premio de $500.000','Cero inversión','Sin inventario','Nosotros despachamos','Tú vendes','Tu enlace, tus ventas'];
   const one=w.map((b,i)=>`<span class="${i%2?'o':''}">${b}</span><img src="logo.png" alt="">`).join('');
   $('#marq').innerHTML=`<div class="it">${one}</div><div class="it">${one}</div>`})();
 /* cursor */
